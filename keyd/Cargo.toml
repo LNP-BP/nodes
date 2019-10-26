@@ -8,7 +8,7 @@ keywords = ["bitcoin", "lightning", "cryptography"]
 readme = "README.md"
 edition = "2018"
 
-[bin]
+[[bin]]
 name = "_____"
 path = "src/main.rs"
 

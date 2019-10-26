@@ -1,0 +1,29 @@
+name: cvpd
+version: "0.1.0"
+author: Dr Maxim Orlovsky <orlovsky@datagnition.com>
+about: Deamon for client-side validation peer communications
+args:
+  - verbose:
+      short: v
+      multiple: true
+      help: Sets the level of verbosity
+  - config:
+      short: c
+      multiple: false
+      help: Path to the configuration path (defaults to /etc/lnp-bp/cvpd
+  - datadir:
+      short: d
+      multiple: false
+      help: Path to the data directory (defaults to /var/lib/lnp-bp/cvpd)
+  - stated:
+      short: s
+      multiple: false
+      help: Path to the `stated` daemon binary (defaults to the same directory as `cvpd`, daemon name defauts to `stated`)
+  - peerport:
+      short: p
+      multiple: false
+      help: Prt for peer communications
+  - apiport:
+      short: a
+      multiple: false
+      help: Port API integrations

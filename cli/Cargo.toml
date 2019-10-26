@@ -1,5 +1,5 @@
 [package]
-name = "____"
+name = "cli"
 version = "0.1.0"
 license = "MIT"
 authors = ["Dr. Maxim Orlovsky <orlovsky@pandoracore.com>"]
@@ -8,8 +8,8 @@ keywords = ["bitcoin", "lightning", "cryptography"]
 readme = "README.md"
 edition = "2018"
 
-[bin]
-name = "_____"
+[[bin]]
+name = "node-cli"
 path = "src/main.rs"
 
 [dependencies]
