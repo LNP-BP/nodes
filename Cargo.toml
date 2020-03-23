@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "common",
+
 	"bpd",
 	"timechaind",
 

@@ -13,8 +13,6 @@ name = "cvpd"
 path = "src/main.rs"
 
 [dependencies]
-bitcoin = { git = "https://github.com/pandoracore/rust-bitcoin.git", branch = "develop" }
-bitcoin_hashes = { git = "https://github.com/pandoracore/bitcoin_hashes.git", branch = "hashnewtype-fix" }
 lnpbp = { git = "https://github.com/lnp-bp/rust-lnpbp.git" }
 zmq = "~0.9"
 log = "~0.4"

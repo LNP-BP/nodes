@@ -102,12 +102,12 @@ fn main() -> io::Result<()> {
         (author: "Dr Maxim Orlovsky <orlovsky@pandoracore.com>")
         (about: "Daemon for handling CVP peer communications")
         (@arg CONFIG: -c --config +takes_value "Sets a custom config file")
-        (@arg DATA: -d --data_dir +takes_value "Directory with state information")
-        (@arg STATED: -s --stated_bin +takes_value "'Sets a custom config file")
-        (@arg P2PPORT: -p --p2p_port +takes_value "Port for P2P interface")
-        (@arg APIPORT: -a --api_port +takes_value "Port for client API")
-        (@arg P2PADDR: --p2p_addr +takes_value "IP address to bind to for P2P interface")
-        (@arg APIADDR: --api_addr +takes_value "IP address to bind to for client API")
+        (@arg DATA: -d --("data-dir") +takes_value "Directory with state information")
+        (@arg STATED: -s --("stated-bin") +takes_value "'Sets a custom config file")
+        (@arg P2PPORT: -p --("p2p-port") +takes_value "Port for the P2P interface")
+        (@arg P2PADDR: -i --("p2p-addr") +takes_value "IP address to bind to for the P2P interface")
+        (@arg APIPORT: -a --("api-port") +takes_value "Port for the client API")
+        (@arg APIADDR: -b --("api-addr") +takes_value "IP address to bind to for the client API")
     ).get_matches();
 
     // 2. Read configuration
