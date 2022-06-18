@@ -11,8 +11,20 @@ rust-version = "1.59.0"
 readme = "../README.md"
 exclude = [".github", "Dockerfile", ".dockerignore", "doc", "shell"]
 
-[lib]
-name = "lnpbp_cli"
+[[bin]]
+name = "bp-cli"
+
+[[bin]]
+name = "lnp-cli"
+
+[[bin]]
+name = "rgb-cli"
+
+[[bin]]
+name = "storm-cli"
+
+[[bin]]
+name = "store-cli"
 
 [dependencies]
 bp-cli = { git = "https://github.com/BP-WG/bp-node", artifact = "bin" }
