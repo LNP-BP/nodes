@@ -18,7 +18,7 @@ readme = "README.md"
 exclude = [".github", "Dockerfile", ".dockerignore", "doc", "shell"]
 
 [lib]
-name = "nodes"
+name = "lnpbp_nodes"
 
 [dependencies]
 lnpbp_node_libs = { path = "libs" }
