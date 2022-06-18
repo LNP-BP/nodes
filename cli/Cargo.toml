@@ -1,0 +1,22 @@
+[package]
+name = "lnpbp-cli"
+description = "Umbrella package for LNP/BP nodes command-line tools"
+authors = ["Dr. Maxim Orlovsky <orlovsky@lnp-bp.org>"]
+license = "MIT"
+keywords = ["bitcoin", "node", "layer-2", "smart-contracts", "rgb"]
+categories = ["network-programming"]
+version = "0.8.0"
+edition = "2021"
+rust-version = "1.59.0"
+readme = "../README.md"
+exclude = [".github", "Dockerfile", ".dockerignore", "doc", "shell"]
+
+[lib]
+name = "lnpbp_cli"
+
+[dependencies]
+bp-cli = { git = "https://github.com/BP-WG/bp-node", artifact = "bin" }
+lnp-cli = { git = "https://github.com/LNP-WG/lnp-node", artifact = "bin" }
+rgb-cli = { git = "https://github.com/RGB-WG/rgb-node", artifact = "bin" }
+storm-cli = { git = "https://github.com/Storm-WG/storm-node", artifact = "bin" }
+store-cli = { git = "https://github.com/Storm-WG/storm-stored", artifact = "bin" }

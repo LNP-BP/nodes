@@ -1,8 +1,29 @@
-[package]
-name = "nodes"
-version = "0.1.0"
-edition = "2021"
+# cargo-features = ["bindeps", "multidep"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace]
+default-members = [".", "libs", "rpc", "cli"]
+members = [".", "libs", "rpc", "cli"]
+
+[package]
+name = "lnpbp_nodes"
+description = "Umbrella package for installing all LNP/BP nodes"
+authors = ["Dr. Maxim Orlovsky <orlovsky@lnp-bp.org>"]
+license = "MIT"
+keywords = ["bitcoin", "node", "layer-2", "smart-contracts", "rgb"]
+categories = ["network-programming"]
+version = "0.8.0"
+edition = "2021"
+rust-version = "1.59.0"
+readme = "README.md"
+exclude = [".github", "Dockerfile", ".dockerignore", "doc", "shell"]
+
+[lib]
+name = "nodes"
 
 [dependencies]
+lnpbp_node_libs = { path = "libs" }
+bp_node = { git = "https://github.com/BP-WG/bp-node", artifact = "bin" }
+lnp_node = { git = "https://github.com/LNP-WG/lnp-node", artifact = "bin" }
+rgb_node = { git = "https://github.com/RGB-WG/rgb-node", artifact = "bin" }
+storm_node = { git = "https://github.com/Storm-WG/storm-node", artifact = "bin" }
+store_daemon = { git = "https://github.com/Storm-WG/storm-stored", artifact = "bin" }

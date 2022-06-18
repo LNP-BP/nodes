@@ -1,0 +1,22 @@
+[package]
+name = "lnpbp_rpc"
+description = "Umbrella package for LNP/BP nodes RPC APIs"
+authors = ["Dr. Maxim Orlovsky <orlovsky@lnp-bp.org>"]
+license = "MIT"
+keywords = ["bitcoin", "node", "layer-2", "smart-contracts", "rgb"]
+categories = ["network-programming"]
+version = "0.8.0"
+edition = "2021"
+rust-version = "1.59.0"
+readme = "../README.md"
+exclude = [".github", "Dockerfile", ".dockerignore", "doc", "shell"]
+
+[lib]
+name = "lnpbp_rpc"
+
+[dependencies]
+bp_rpc = { git = "https://github.com/BP-WG/bp-node" }
+lnp_rpc = { git = "https://github.com/LNP-WG/lnp-node" }
+rgb_rpc = { git = "https://github.com/RGB-WG/rgb-node" }
+storm_rpc = { git = "https://github.com/Storm-WG/storm-node" }
+store_rpc = { git = "https://github.com/Storm-WG/storm-stored" }
