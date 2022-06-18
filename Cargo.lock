@@ -1509,23 +1509,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "lnpbp_node_libs"
-version = "0.8.0"
-dependencies = [
- "bp_node",
- "lnp_node",
- "rgb_node",
- "store_daemon",
- "storm_node",
-]
-
-[[package]]
 name = "lnpbp_nodes"
 version = "0.8.0"
 dependencies = [
  "bp_node",
  "lnp_node",
- "lnpbp_node_libs",
  "rgb_node",
  "store_daemon",
  "storm_node",

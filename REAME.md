@@ -25,3 +25,7 @@ Using RPC API in another project `Cargo.toml`:
 [dependecies]
 lnpbp_rpc = "0.8.0"
 ```
+
+## Integration architecture
+
+![image](https://user-images.githubusercontent.com/372034/174442561-117e9225-3912-49c8-9609-c71c70cd81d6.png)

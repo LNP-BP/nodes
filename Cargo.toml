@@ -1,8 +1,8 @@
 # cargo-features = ["bindeps", "multidep"]
 
 [workspace]
-default-members = [".", "libs", "rpc", "cli"]
-members = [".", "libs", "rpc", "cli"]
+default-members = [".", "rpc", "cli"]
+members = [".", "rpc", "cli"]
 
 [package]
 name = "lnpbp_nodes"
@@ -20,10 +20,33 @@ exclude = [".github", "Dockerfile", ".dockerignore", "doc", "shell"]
 [lib]
 name = "lnpbp_nodes"
 
+[[bin]]
+name = "bpd"
+
+[[bin]]
+name = "lnpd"
+
+[[bin]]
+name = "peerd"
+
+[[bin]]
+name = "channeld"
+
+[[bin]]
+name = "routed"
+
+[[bin]]
+name = "rgbd"
+
+[[bin]]
+name = "stormd"
+
+[[bin]]
+name = "stored"
+
 [dependencies]
-lnpbp_node_libs = { path = "libs" }
-bp_node = { git = "https://github.com/BP-WG/bp-node", artifact = "bin" }
-lnp_node = { git = "https://github.com/LNP-WG/lnp-node", artifact = "bin" }
-rgb_node = { git = "https://github.com/RGB-WG/rgb-node", artifact = "bin" }
-storm_node = { git = "https://github.com/Storm-WG/storm-node", artifact = "bin" }
-store_daemon = { git = "https://github.com/Storm-WG/storm-stored", artifact = "bin" }
+bp_node = { git = "https://github.com/BP-WG/bp-node", artifact = "bin", lib = true }
+lnp_node = { git = "https://github.com/LNP-WG/lnp-node", artifact = "bin", lib = true }
+rgb_node = { git = "https://github.com/RGB-WG/rgb-node", artifact = "bin", lib = true }
+storm_node = { git = "https://github.com/Storm-WG/storm-node", artifact = "bin", lib = true }
+store_daemon = { git = "https://github.com/Storm-WG/storm-stored", artifact = "bin", lib = true }
