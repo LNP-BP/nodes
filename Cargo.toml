@@ -1,4 +1,4 @@
-# cargo-features = ["bindeps", "multidep"]
+# cargo-features = ["bindeps"]
 
 [workspace]
 default-members = [".", "rpc", "cli"]
