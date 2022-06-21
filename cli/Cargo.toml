@@ -5,7 +5,7 @@ authors = ["Dr. Maxim Orlovsky <orlovsky@lnp-bp.org>"]
 license = "MIT"
 keywords = ["bitcoin", "node", "layer-2", "smart-contracts", "rgb"]
 categories = ["network-programming"]
-version = "0.8.0"
+version = "0.8.0-alpha.1"
 edition = "2021"
 rust-version = "1.59.0"
 readme = "../README.md"
@@ -27,8 +27,8 @@ name = "storm-cli"
 name = "store-cli"
 
 [dependencies]
-bp-cli = { git = "https://github.com/BP-WG/bp-node", artifact = "bin" }
-lnp-cli = { git = "https://github.com/LNP-WG/lnp-node", artifact = "bin" }
-rgb-cli = { git = "https://github.com/RGB-WG/rgb-node", artifact = "bin" }
-storm-cli = { git = "https://github.com/Storm-WG/storm-node", artifact = "bin" }
-store-cli = { git = "https://github.com/Storm-WG/storm-stored", artifact = "bin" }
+bp-cli = { version = "0.8.0-alpha.1", git = "https://github.com/BP-WG/bp-node", artifact = "bin" }
+lnp-cli = { version = "0.8.0-alpha.1", git = "https://github.com/LNP-WG/lnp-node", artifact = "bin" }
+rgb-cli = { version = "0.8.0-alpha.1", git = "https://github.com/RGB-WG/rgb-node", artifact = "bin" }
+storm-cli = { version = "0.8.0-alpha.1", git = "https://github.com/Storm-WG/storm-node", artifact = "bin" }
+store-cli = { version = "0.8.0-beta.1", git = "https://github.com/Storm-WG/storm-stored", artifact = "bin" }

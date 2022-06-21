@@ -46,9 +46,9 @@ dependencies = [
 
 [[package]]
 name = "amplify"
-version = "3.12.0"
+version = "3.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "47cfa6a69eeb140125a63e4f5ae1156a530f8744ea1d35aa1b8b5613e4d8b41d"
+checksum = "e45c604e86700ffea68a7d90c3ffb1508dad1120902f31dbb08afc942cf8acf3"
 dependencies = [
  "amplify_apfloat",
  "amplify_derive",
@@ -246,9 +246,9 @@ dependencies = [
 
 [[package]]
 name = "bitcoin_scripts"
-version = "0.7.0"
+version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d8ef0ceaddc4fc71a8c6c923201abbf269f36ae7d7e50ee2d93fd4c32537e113"
+checksum = "dcfdf7d9a0b3af94a35b92daa2e3f1c5b02b7293b5938a4cd4cc426852e52249"
 dependencies = [
  "amplify",
  "bitcoin 0.28.1",
@@ -284,13 +284,15 @@ checksum = "8d696c370c750c948ada61c69a0ee2cbbb9c50b1019ddb86d9317157a99c2cae"
 
 [[package]]
 name = "bp-cli"
-version = "0.3.0"
-source = "git+https://github.com/BP-WG/bp-node#ba650ac88d2cc0a446c06fc46d894a9222dba655"
+version = "0.8.0-alpha.1"
+source = "git+https://github.com/BP-WG/bp-node#2457d27a426c3a5f23b1790a1bd783ae53471201"
 dependencies = [
  "amplify",
  "bp_rpc",
  "clap",
+ "clap_complete",
  "colored",
+ "configure_me_codegen",
  "internet2",
  "log",
  "microservices",
@@ -349,8 +351,8 @@ dependencies = [
 
 [[package]]
 name = "bp_node"
-version = "0.3.0"
-source = "git+https://github.com/BP-WG/bp-node#ba650ac88d2cc0a446c06fc46d894a9222dba655"
+version = "0.8.0-alpha.1"
+source = "git+https://github.com/BP-WG/bp-node#2457d27a426c3a5f23b1790a1bd783ae53471201"
 dependencies = [
  "amplify",
  "bp_rpc",
@@ -370,13 +372,12 @@ dependencies = [
  "nix 0.19.1",
  "shellexpand",
  "strict_encoding",
- "zmq2",
 ]
 
 [[package]]
 name = "bp_rpc"
-version = "0.3.0"
-source = "git+https://github.com/BP-WG/bp-node#ba650ac88d2cc0a446c06fc46d894a9222dba655"
+version = "0.8.0-alpha.1"
+source = "git+https://github.com/BP-WG/bp-node#2457d27a426c3a5f23b1790a1bd783ae53471201"
 dependencies = [
  "amplify",
  "internet2",
@@ -386,7 +387,6 @@ dependencies = [
  "serde_with",
  "serde_yaml",
  "strict_encoding",
- "zmq2",
 ]
 
 [[package]]
@@ -635,6 +635,26 @@ dependencies = [
  "toml",
  "unicode-segmentation",
  "void",
+]
+
+[[package]]
+name = "const_format"
+version = "0.2.25"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2906f2480cdc015e998deac388331a0f1c1cd88744948c749513020c83c370bc"
+dependencies = [
+ "const_format_proc_macros",
+]
+
+[[package]]
+name = "const_format_proc_macros"
+version = "0.2.22"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ef196d5d972878a48da7decb7686eded338b4858fbabeed513d63a7c98b2b82d"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "unicode-xid",
 ]
 
 [[package]]
@@ -1343,24 +1363,25 @@ checksum = "7fb9b38af92608140b86b693604b9ffcc5824240a484d1ecd4795bacb2fe88f3"
 
 [[package]]
 name = "lnp-cli"
-version = "0.8.0"
-source = "git+https://github.com/LNP-WG/lnp-node#fe5cda1ecc05e1cb08aced71168d1c4443a0a95b"
+version = "0.8.0-alpha.1"
+source = "git+https://github.com/LNP-WG/lnp-node#092ac979fae5711559147f7e0bee0995cfdfa747"
 dependencies = [
  "amplify",
  "clap",
+ "clap_complete",
+ "configure_me_codegen",
  "internet2",
  "lightning-invoice",
  "lnp-core",
  "lnp_rpc",
  "log",
  "microservices",
- "zmq2",
 ]
 
 [[package]]
 name = "lnp-core"
-version = "0.8.0"
-source = "git+https://github.com/LNP-WG/lnp-core#3d32ff45164c2f9942056aa0f3ccdf2969ecbafc"
+version = "0.8.0-alpha.1"
+source = "git+https://github.com/LNP-WG/lnp-core#1c952b5919a6294be4317f78eeb78a465ed258fb"
 dependencies = [
  "amplify",
  "bitcoin 0.28.1",
@@ -1377,8 +1398,8 @@ dependencies = [
 
 [[package]]
 name = "lnp2p"
-version = "0.8.0"
-source = "git+https://github.com/LNP-WG/lnp-core#3d32ff45164c2f9942056aa0f3ccdf2969ecbafc"
+version = "0.8.0-alpha.1"
+source = "git+https://github.com/LNP-WG/lnp-core#1c952b5919a6294be4317f78eeb78a465ed258fb"
 dependencies = [
  "amplify",
  "bitcoin 0.28.1",
@@ -1399,8 +1420,8 @@ dependencies = [
 
 [[package]]
 name = "lnp_node"
-version = "0.8.0"
-source = "git+https://github.com/LNP-WG/lnp-node#fe5cda1ecc05e1cb08aced71168d1c4443a0a95b"
+version = "0.8.0-alpha.1"
+source = "git+https://github.com/LNP-WG/lnp-node#092ac979fae5711559147f7e0bee0995cfdfa747"
 dependencies = [
  "amplify",
  "bitcoin 0.28.1",
@@ -1432,8 +1453,8 @@ dependencies = [
 
 [[package]]
 name = "lnp_rpc"
-version = "0.8.0"
-source = "git+https://github.com/LNP-WG/lnp-node#fe5cda1ecc05e1cb08aced71168d1c4443a0a95b"
+version = "0.8.0-alpha.1"
+source = "git+https://github.com/LNP-WG/lnp-node#092ac979fae5711559147f7e0bee0995cfdfa747"
 dependencies = [
  "amplify",
  "bitcoin 0.28.1",
@@ -1467,7 +1488,7 @@ dependencies = [
 
 [[package]]
 name = "lnpbp-cli"
-version = "0.8.0"
+version = "0.8.0-alpha.1"
 dependencies = [
  "bp-cli",
  "lnp-cli",
@@ -1510,7 +1531,7 @@ dependencies = [
 
 [[package]]
 name = "lnpbp_nodes"
-version = "0.8.0"
+version = "0.8.0-alpha.1"
 dependencies = [
  "bp_node",
  "lnp_node",
@@ -1521,7 +1542,7 @@ dependencies = [
 
 [[package]]
 name = "lnpbp_rpc"
-version = "0.8.0"
+version = "0.8.0-alpha.1"
 dependencies = [
  "bp_rpc",
  "lnp_rpc",
@@ -1813,9 +1834,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.39"
+version = "1.0.40"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c54b25569025b7fc9651de43004ae593a75ad88543b17178aa5e1b9c4f15f56f"
+checksum = "dd96a1e8ed2596c337f8eae5f24924ec83f5ad5ab21ea8e455d3566c69fbcaf7"
 dependencies = [
  "unicode-ident",
 ]
@@ -1846,9 +1867,9 @@ checksum = "a1d01941d82fa2ab50be1e79e6714289dd7cde78eba4c074bc5a4374f650dfe0"
 
 [[package]]
 name = "quote"
-version = "1.0.18"
+version = "1.0.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a1feb54ed693b93a84e14094943b84b7c4eae204c512b7ccb95ab0c66d278ad1"
+checksum = "3bcdf212e9776fbcb2d23ab029360416bb1706b1aea2d1a5ba002727cbcab804"
 dependencies = [
  "proc-macro2",
 ]
@@ -2116,22 +2137,25 @@ checksum = "49b3de9ec5dc0a3417da371aab17d729997c15010e7fd24ff707773a33bddb64"
 [[package]]
 name = "rgb-cli"
 version = "0.8.0-alpha.1"
-source = "git+https://github.com/RGB-WG/rgb-node#2005b54c7399e5b03ee3b45ae373c793fb603028"
+source = "git+https://github.com/RGB-WG/rgb-node#b7d0d8a469646e42bd24cac680c42fecdd928d66"
 dependencies = [
  "amplify",
  "clap",
+ "clap_complete",
  "colored",
+ "configure_me_codegen",
  "internet2",
  "log",
  "microservices",
+ "rgb-std",
  "rgb_rpc",
+ "shellexpand",
 ]
 
 [[package]]
 name = "rgb-core"
-version = "0.8.0-alpha.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "403c23b76a2ab2a8364d5e6b86b790f61a0035df89733bff15680085d1873342"
+version = "0.8.0-beta.1"
+source = "git+https://github.com/RGB-WG/rgb-core#b96ede4bdeb7558c6fa613cfa2337733d0f066a3"
 dependencies = [
  "aluvm",
  "amplify",
@@ -2151,9 +2175,8 @@ dependencies = [
 
 [[package]]
 name = "rgb-std"
-version = "0.8.0-alpha.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40da3fa9c6c051fe4ed3fd2a19eb7c98d9020c9196c347ada2921f41e1ed33a7"
+version = "0.8.0-beta.1"
+source = "git+https://github.com/RGB-WG/rgb-std#bea6e2f98d9d5850eb8f746beab621805e8c81ed"
 dependencies = [
  "amplify",
  "bitcoin 0.28.1",
@@ -2174,9 +2197,10 @@ dependencies = [
 [[package]]
 name = "rgb_node"
 version = "0.8.0-alpha.1"
-source = "git+https://github.com/RGB-WG/rgb-node#2005b54c7399e5b03ee3b45ae373c793fb603028"
+source = "git+https://github.com/RGB-WG/rgb-node#b7d0d8a469646e42bd24cac680c42fecdd928d66"
 dependencies = [
  "amplify",
+ "bitcoin 0.28.1",
  "chrono",
  "clap",
  "clap_complete",
@@ -2195,20 +2219,22 @@ dependencies = [
  "rgb_rpc",
  "shellexpand",
  "store_rpc",
- "storm_app",
+ "storm_ext",
  "strict_encoding",
- "zmq2",
 ]
 
 [[package]]
 name = "rgb_rpc"
 version = "0.8.0-alpha.1"
-source = "git+https://github.com/RGB-WG/rgb-node#2005b54c7399e5b03ee3b45ae373c793fb603028"
+source = "git+https://github.com/RGB-WG/rgb-node#b7d0d8a469646e42bd24cac680c42fecdd928d66"
 dependencies = [
  "amplify",
+ "colored",
+ "const_format",
  "internet2",
  "log",
  "microservices",
+ "rgb-std",
  "serde 1.0.137",
  "serde_with",
  "serde_yaml",
@@ -2590,22 +2616,26 @@ dependencies = [
 
 [[package]]
 name = "store-cli"
-version = "0.8.0-alpha.1"
-source = "git+https://github.com/Storm-WG/storm-stored#f098fb334150862098acba4238d17118485b8513"
+version = "0.8.0-beta.1"
+source = "git+https://github.com/Storm-WG/storm-stored#9f59e4ae098dac52387a357e6c6b0f05625fdb86"
 dependencies = [
  "amplify",
  "clap",
+ "clap_complete",
  "colored",
+ "configure_me_codegen",
  "internet2",
  "log",
  "microservices",
+ "shellexpand",
  "store_rpc",
+ "storm-core 0.1.0",
 ]
 
 [[package]]
 name = "store_daemon"
-version = "0.8.0-alpha.1"
-source = "git+https://github.com/Storm-WG/storm-stored#f098fb334150862098acba4238d17118485b8513"
+version = "0.8.0-beta.1"
+source = "git+https://github.com/Storm-WG/storm-stored#9f59e4ae098dac52387a357e6c6b0f05625fdb86"
 dependencies = [
  "amplify",
  "chrono",
@@ -2626,19 +2656,19 @@ dependencies = [
  "shellexpand",
  "sled",
  "store_rpc",
- "storm-core 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "storm-core 0.1.0",
  "strict_encoding",
- "zmq2",
 ]
 
 [[package]]
 name = "store_rpc"
-version = "0.8.0-alpha.1"
-source = "git+https://github.com/Storm-WG/storm-stored#f098fb334150862098acba4238d17118485b8513"
+version = "0.8.0-beta.2"
+source = "git+https://github.com/Storm-WG/storm-stored#9f59e4ae098dac52387a357e6c6b0f05625fdb86"
 dependencies = [
  "amplify",
  "colored",
  "commit_verify",
+ "const_format",
  "internet2",
  "log",
  "microservices",
@@ -2646,19 +2676,20 @@ dependencies = [
  "serde 1.0.137",
  "serde_with",
  "serde_yaml",
- "storm-core 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "storm-core 0.1.0",
  "strict_encoding",
- "zmq2",
 ]
 
 [[package]]
 name = "storm-cli"
 version = "0.8.0-alpha.1"
-source = "git+https://github.com/Storm-WG/storm-node#8d612066746513cca21ac55d3b619ee4f54ee9ee"
+source = "git+https://github.com/Storm-WG/storm-node#4f6491fd1f94cff188ec0444bc7e4d23761c34b7"
 dependencies = [
  "amplify",
  "clap",
+ "clap_complete",
  "colored",
+ "configure_me_codegen",
  "internet2",
  "log",
  "microservices",
@@ -2679,8 +2710,8 @@ dependencies = [
 
 [[package]]
 name = "storm-core"
-version = "0.1.0"
-source = "git+https://github.com/Storm-WG/storm-core#363386f7afd4620af222543ce03d7e877247f444"
+version = "0.2.0"
+source = "git+https://github.com/Storm-WG/storm-core#88c993ac9e9dc3cb97867b7892e9bfe627f8b69c"
 dependencies = [
  "amplify",
  "bitcoin_hashes",
@@ -2692,9 +2723,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "storm_app"
+name = "storm_ext"
 version = "0.8.0-alpha.1"
-source = "git+https://github.com/Storm-WG/storm-node#8d612066746513cca21ac55d3b619ee4f54ee9ee"
+source = "git+https://github.com/Storm-WG/storm-node#4f6491fd1f94cff188ec0444bc7e4d23761c34b7"
 dependencies = [
  "amplify",
  "internet2",
@@ -2704,7 +2735,7 @@ dependencies = [
  "serde 1.0.137",
  "serde_with",
  "serde_yaml",
- "storm-core 0.1.0 (git+https://github.com/Storm-WG/storm-core)",
+ "storm-core 0.2.0",
  "storm_rpc",
  "strict_encoding",
  "zmq2",
@@ -2713,7 +2744,7 @@ dependencies = [
 [[package]]
 name = "storm_node"
 version = "0.8.0-alpha.1"
-source = "git+https://github.com/Storm-WG/storm-node#8d612066746513cca21ac55d3b619ee4f54ee9ee"
+source = "git+https://github.com/Storm-WG/storm-node#4f6491fd1f94cff188ec0444bc7e4d23761c34b7"
 dependencies = [
  "amplify",
  "chrono",
@@ -2734,17 +2765,16 @@ dependencies = [
  "nix 0.24.1",
  "shellexpand",
  "store_rpc",
- "storm-core 0.1.0 (git+https://github.com/Storm-WG/storm-core)",
- "storm_app",
+ "storm-core 0.2.0",
+ "storm_ext",
  "storm_rpc",
  "strict_encoding",
- "zmq2",
 ]
 
 [[package]]
 name = "storm_rpc"
 version = "0.8.0-alpha.1"
-source = "git+https://github.com/Storm-WG/storm-node#8d612066746513cca21ac55d3b619ee4f54ee9ee"
+source = "git+https://github.com/Storm-WG/storm-node#4f6491fd1f94cff188ec0444bc7e4d23761c34b7"
 dependencies = [
  "amplify",
  "internet2",
@@ -2758,9 +2788,9 @@ dependencies = [
 
 [[package]]
 name = "strict_encoding"
-version = "1.8.8"
+version = "1.8.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d1bbb5109701ede3df3e20b82a134d601036f02b8b2f259965266a6a784cc749"
+checksum = "796bf3e8abb485e9194d03dfc534221e382f8cf058f417bbd66d5f4dd3b8a0cc"
 dependencies = [
  "amplify",
  "bitcoin 0.28.1",
@@ -2810,9 +2840,9 @@ checksum = "6bdef32e8150c2a081110b42772ffe7d7c9032b606bc226c8260fd97e0976601"
 
 [[package]]
 name = "syn"
-version = "1.0.97"
+version = "1.0.98"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "233d6785e2e6b8442eb26736eaef8c8f0ce0e575c1457d06c3f2812f9cb4c8a0"
+checksum = "c50aef8a904de4c23c788f104b7dddc7d6f79c647c7c8ce4cc8f73eb0ca773dd"
 dependencies = [
  "proc-macro2",
  "quote",
