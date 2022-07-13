@@ -46,7 +46,7 @@ name = "stored"
 
 [dependencies]
 bp_node = { version = "0.8.0-alpha.1", git = "https://github.com/BP-WG/bp-node", artifact = "bin", lib = true }
-lnp_node = { version = "0.8.0-alpha.1", git = "https://github.com/LNP-WG/lnp-node", artifact = "bin", lib = true }
-rgb_node = { version = "0.8.0-alpha.1", git = "https://github.com/RGB-WG/rgb-node", artifact = "bin", lib = true }
-storm_node = { version = "0.8.0-alpha.1", git = "https://github.com/Storm-WG/storm-node", artifact = "bin", lib = true }
-store_daemon = { version = "0.8.0-beta.2", git = "https://github.com/Storm-WG/storm-stored", artifact = "bin", lib = true }
+lnp_node = { version = "0.8.0-rc.1", git = "https://github.com/LNP-WG/lnp-node", artifact = "bin", lib = true }
+rgb_node = { version = "0.8.0-beta.2", git = "https://github.com/RGB-WG/rgb-node", artifact = "bin", lib = true }
+storm_node = { version = "0.8.0-beta.1", git = "https://github.com/Storm-WG/storm-node", artifact = "bin", lib = true }
+store_daemon = { version = "0.8.0-rc.5", git = "https://github.com/Storm-WG/storm-stored", artifact = "bin", lib = true }
