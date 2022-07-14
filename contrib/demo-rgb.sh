@@ -6,9 +6,9 @@
 rustup add nigtly
 rustup update nigtly
 # This installs all 4 LNP/BP nodes at onc
-cargo +nightly install lnpbp_nodese
+cargo +nightly -Z bindeps install lnpbp_nodes --version 0.8.0-rc.1
 # This installs a dozen of command-line tools for working with LNP/BP stack
-cargo +nightly install lnpbp-cli
+cargo +nightly -Z bindeps install lnpbp-cli --version 0.8.0-rc.1
 
 DIR=~/.demo # Replace with the desired location
 
@@ -51,8 +51,8 @@ rgb-cli -n testnet contract state ${CONTRACT_ID}
 
 rustup add nigtly
 rustup update nigtly
-cargo +nightly install lnpbp_nodes
-cargo +nightly install lnpbp-cli
+cargo +nightly -Z bindeps install lnpbp_nodes --version 0.8.0-rc.1
+cargo +nightly -Z bindeps install lnpbp-cli --version 0.8.0-rc.1
 
 DIR=~/.demo # Replace with the desired location
 
