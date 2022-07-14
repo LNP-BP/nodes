@@ -5,7 +5,7 @@ authors = ["Dr. Maxim Orlovsky <orlovsky@lnp-bp.org>"]
 license = "MIT"
 keywords = ["bitcoin", "node", "layer-2", "smart-contracts", "rgb"]
 categories = ["network-programming"]
-version = "0.8.0-alpha.1"
+version = "0.8.0-rc.1"
 edition = "2021"
 rust-version = "1.59.0"
 readme = "../README.md"
@@ -26,9 +26,31 @@ name = "storm-cli"
 [[bin]]
 name = "store-cli"
 
+[[bin]]
+name = "btc-hot"
+
+[[bin]]
+name = "btc-cold"
+
+[[bin]]
+name = "dbc"
+
+[[bin]]
+name = "seals"
+
+[[bin]]
+name = "rgb"
+
+[[bin]]
+name = "rgb20"
+
 [dependencies]
-bp-cli = { version = "0.8.0-alpha.1", git = "https://github.com/BP-WG/bp-node", artifact = "bin" }
-lnp-cli = { version = "0.8.0-rc.1", git = "https://github.com/LNP-WG/lnp-node", artifact = "bin" }
-rgb-cli = { version = "0.8.0-beta.2", git = "https://github.com/RGB-WG/rgb-node", artifact = "bin" }
-storm-cli = { version = "0.8.0-beta.1", git = "https://github.com/Storm-WG/storm-node", artifact = "bin" }
-store-cli = { version = "0.8.0-rc.5", git = "https://github.com/Storm-WG/storm-stored", artifact = "bin" }
+descriptor-wallet = { version = "0.8.2", artifact = "bin", features = ["all"] }
+bp-core = { version = "0.8.0", artifact = "bin", features = ["all"] }
+rgb-std = { version = "0.8.0", artifact = "bin", features = ["all"] }
+rgb20 = { version = "0.8.0-rc.3", artifact = "bin", features = ["all"] }
+bp-cli = { version = "0.8.0-alpha.2", artifact = "bin" }
+lnp-cli = { version = "0.8.0", artifact = "bin" }
+rgb-cli = { version = "0.8.0-rc.1", artifact = "bin" }
+storm-cli = { version = "0.8.0-beta.1", artifact = "bin" }
+store-cli = { version = "0.8.0", artifact = "bin" }

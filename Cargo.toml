@@ -11,7 +11,7 @@ authors = ["Dr. Maxim Orlovsky <orlovsky@lnp-bp.org>"]
 license = "MIT"
 keywords = ["bitcoin", "node", "layer-2", "smart-contracts", "rgb"]
 categories = ["network-programming"]
-version = "0.8.0-alpha.1"
+version = "0.8.0-rc.1"
 edition = "2021"
 rust-version = "1.59.0"
 readme = "README.md"
@@ -39,14 +39,26 @@ name = "routed"
 name = "rgbd"
 
 [[bin]]
+name = "bucketd"
+
+[[bin]]
 name = "stormd"
+
+[[bin]]
+name = "transferd"
+
+[[bin]]
+name = "chatd"
+
+[[bin]]
+name = "downpourd"
 
 [[bin]]
 name = "stored"
 
 [dependencies]
-bp_node = { version = "0.8.0-alpha.1", git = "https://github.com/BP-WG/bp-node", artifact = "bin", lib = true }
-lnp_node = { version = "0.8.0-rc.1", git = "https://github.com/LNP-WG/lnp-node", artifact = "bin", lib = true }
-rgb_node = { version = "0.8.0-beta.2", git = "https://github.com/RGB-WG/rgb-node", artifact = "bin", lib = true }
-storm_node = { version = "0.8.0-beta.1", git = "https://github.com/Storm-WG/storm-node", artifact = "bin", lib = true }
-store_daemon = { version = "0.8.0-rc.5", git = "https://github.com/Storm-WG/storm-stored", artifact = "bin", lib = true }
+bp_node = { version = "0.8.0-alpha.2", artifact = "bin", lib = true }
+lnp_node = { version = "0.8.0", artifact = "bin", lib = true, features = ["all"] }
+rgb_node = { version = "0.8.0-rc.1", artifact = "bin", lib = true }
+storm_node = { version = "0.8.0-beta.1", artifact = "bin", lib = true }
+store_daemon = { version = "0.8.0", artifact = "bin", lib = true }
