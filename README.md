@@ -6,7 +6,7 @@ The repo provides integration packages for LNP/BP node suit, which includes
 - [LNP Node](https://github.com/LNP-WG/lnp-node),
 - [RGB Node](https://github.com/RGB-WG/rgb-node),
 - [Storm Node](https://github.com/Storm-WG/storm-node), and
-- [Store Service](https://github.com/Storm-WG/storm-node), which usually shipped separately from
+- [Store Service](https://github.com/Storm-WG/storm-stored), which usually shipped separately from
   the Storm node.
 
 Installing all nodes locally:
