@@ -8,23 +8,23 @@ rustup update nigtly
 # This installs all 4 LNP/BP nodes at onc
 # cargo +nightly -Z bindeps install lnpbp_nodes --version 0.8.0-rc.1
 # In the end they need to be installed separately
-cargo install bp_node --version "0.8.0-alpha.2"
-cargo install lnp_node --version "0.8.0"
-cargo install rgb_node --version "0.8.0-rc.1"
-cargo install storm_node --version "0.8.0-beta.1"
-cargo install store_daemon --version "0.8.0"
+cargo install --all-features bp_node --version "0.8.0-alpha.2"
+cargo install --all-features lnp_node --version "0.8.0"
+cargo install --all-features rgb_node --version "0.8.0-rc.1"
+cargo install --all-features storm_node --version "0.8.0-beta.1"
+cargo install --all-features store_daemon --version "0.8.0"
 # This installs a dozen of command-line tools for working with LNP/BP stack
 # cargo +nightly -Z bindeps install lnpbp-cli --version 0.8.0-rc.1
 # In the end they need to be installed separately
-cargo install descriptor-wallet --version "0.8.2"
-cargo install bp-core --version "0.8.0"
-cargo install rgb-std --version "0.8.0"
-cargo install rgb20 --version "0.8.0-rc.3"
-cargo install bp-cli --version "0.8.0-alpha.2"
-cargo install lnp-cli --version "0.8.0"
-cargo install rgb-cli --version "0.8.0-rc.1"
-cargo install storm-cli --version "0.8.0-beta.1"
-cargo install store-cli --version "0.8.0"
+cargo install --all-features descriptor-wallet --version "0.8.2"
+cargo install --all-features bp-core --version "0.8.0"
+cargo install --all-features rgb-std --version "0.8.0"
+cargo install --all-features rgb20 --version "0.8.0-rc.3"
+cargo install --all-features bp-cli --version "0.8.0-alpha.2"
+cargo install --all-features lnp-cli --version "0.8.0"
+cargo install --all-features rgb-cli --version "0.8.0-rc.1"
+cargo install --all-features storm-cli --version "0.8.0-beta.1"
+cargo install --all-features store-cli --version "0.8.0"
 
 DIR=~/.demo # Replace with the desired location
 
