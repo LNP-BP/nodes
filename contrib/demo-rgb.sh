@@ -2,13 +2,8 @@
 
 # --- INITIAL SETUP
 
-# Only nightly cargo supports installing binary bundles
-rustup add nigtly
-rustup update nigtly
-# This installs all 4 LNP/BP nodes at onc
-cargo +nightly -Z bindeps install lnpbp_nodes --version 0.8.0-rc.1
-# This installs a dozen of command-line tools for working with LNP/BP stack
-cargo +nightly -Z bindeps install lnpbp-cli --version 0.8.0-rc.1
+# Run separate install script
+./install.sh
 
 DIR=~/.demo # Replace with the desired location
 
@@ -49,10 +44,8 @@ rgb-cli -n testnet contract state ${CONTRACT_ID}
 # ----------------------------------------------------------
 # Go to a remote server / other machine and do the following
 
-rustup add nigtly
-rustup update nigtly
-cargo +nightly -Z bindeps install lnpbp_nodes --version 0.8.0-rc.1
-cargo +nightly -Z bindeps install lnpbp-cli --version 0.8.0-rc.1
+# Run separate install script
+./install.sh
 
 DIR=~/.demo # Replace with the desired location
 
