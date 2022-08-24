@@ -33,7 +33,7 @@ tmux new-session -d -s rgb rgbd -vvv --network testnet
 tmux new-session -d -s storm stormd -vvv --chat --downpour --msg ~/.lnp_node/testnet/msg
 # -OR- run all the daemons within the same terminal (processes must be exited using process manager)
 # Note: Try all these commands separately first to ensure they can run
-stored -vvv & lnpd -vvv --network testnet & rgbd -vvv --network testnet & stormd -vvv --chat --downpour --msg /home/hunter/.lnp_node/testnet/msg &
+stored -vvv & lnpd -vvv --network testnet & rgbd -vvv --network testnet & stormd -vvv --chat --downpour --msg ~/.lnp_node/testnet/msg &
 
 # --- CONTRACT ISSUANCE
 
