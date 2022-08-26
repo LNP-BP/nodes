@@ -8,7 +8,7 @@ cargo install --force --all-features rgb_node --version "0.8.0"
 cargo install --force --all-features storm_node --version "0.8.0"
 cargo install --force --all-features store_daemon --version "0.8.0"
 # This install --forces a dozen of command-line tools for working with LNP/BP stack
-cargo install --force --all-features descriptor-wallet --version "0.8.2"
+cargo install --force --all-features descriptor-wallet --version "0.8.3"
 cargo install --force --all-features bp-core --version "0.8.0"
 cargo install --force --all-features rgb-std --version "0.8.0"
 cargo install --force --all-features rgb20 --version "0.8.0-rc.4"
