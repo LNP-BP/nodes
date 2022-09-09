@@ -2,13 +2,8 @@
 
 # --- INITIAL SETUP
 
-# Only nightly cargo supports installing binary bundles
-rustup add nigtly
-rustup update nigtly
-# This installs all 4 LNP/BP nodes at onc
-cargo +nightly -Z bindeps install lnpbp_nodes --version 0.8.0-rc.1
-# This installs a dozen of command-line tools for working with LNP/BP stack
-cargo +nightly -Z bindeps install lnpbp-cli --version 0.8.0-rc.1
+# Run separate install script
+./install.sh
 
 DIR=~/.demo # Replace with the desired location
 
@@ -27,11 +22,18 @@ btc-cold check ${WALLET}
 # Note the transaction outputs and save them to these variables
 UTXO_ISSUE="<txid>:<vout>"
 UTXO_CHANGE="<txid>:<vout>"
+# Find your wallet's testnet xprv (it's in black text for dark theme terminal users)
+btc-hot -P info ${DIR}/testnet.seed
+# Initialize lnpd with your hot wallet xprv
+lnpd -vvv --network testnet init
 
 tmux new-session -d -s store stored -vvv
 tmux new-session -d -s lnp lnpd -vvv --network testnet
 tmux new-session -d -s rgb rgbd -vvv --network testnet
-tmux new-session -d -s storm storm -vvv --chat --downpour
+tmux new-session -d -s storm stormd -vvv --chat --downpour --msg ~/.lnp_node/testnet/msg
+# -OR- run all the daemons within the same terminal (processes must be exited using process manager)
+# Note: Try all these commands separately first to ensure they can run
+stored -vvv & lnpd -vvv --network testnet & rgbd -vvv --network testnet & stormd -vvv --chat --downpour --msg ~/.lnp_node/testnet/msg &
 
 # --- CONTRACT ISSUANCE
 
@@ -49,10 +51,8 @@ rgb-cli -n testnet contract state ${CONTRACT_ID}
 # ----------------------------------------------------------
 # Go to a remote server / other machine and do the following
 
-rustup add nigtly
-rustup update nigtly
-cargo +nightly -Z bindeps install lnpbp_nodes --version 0.8.0-rc.1
-cargo +nightly -Z bindeps install lnpbp-cli --version 0.8.0-rc.1
+# Run separate install script
+./install.sh
 
 DIR=~/.demo # Replace with the desired location
 
@@ -67,6 +67,10 @@ btc-cold address ${DIR}/testnet2.wallet
 btc-cold check ${DIR}/testnet2.wallet
 # Note the first transaction output and save it to variable
 UTXO="<txid>:<vout>"
+# Find your wallet's testnet xprv (it's in black text for dark theme terminal users)
+btc-hot -P info ${DIR}/testnet.seed
+# Initialize lnpd with your hot wallet xprv
+lnpd -vvv --network testnet init
 
 tmux new-session -d -s store stored -vvv
 tmux new-session -d -s lnp lnpd -vvv --network testnet --listen-all --bifrost
@@ -136,7 +140,8 @@ rgb psbt analyze ${PSBT}
 # data, the txid of the witness transaction is final.
 # Now we can finalize the consignment by adding the anchor information to it
 # referencing this txid.
-# We also instruct the daemon to send the consignment to the beneficiaty LN node.
+# We also instruct the daemon to send the consignment to the beneficiary LN node.
+# If done on the same system (a self-payment), the --send argument can be omitted.
 rgb-cli -n testnet transfer finalize --endseal ${TXOB} ${PSBT} ${CONSIGNMENT} --send
 
 # Those who interested can look into the transfer consignment
@@ -148,7 +153,6 @@ rgb consignment inspect ${CONSIGNMENT}
 rgb consignment validate ${CONSIGNMENT}
 
 # Lets finalize, sign & publish the witness transaction
-dbc commit ${PSBT}
 btc-hot sign ${PSBT} ${DIR}/testnet
 btc-cold finalize --publish testnet ${PSBT}
 
