@@ -4,7 +4,7 @@ rustup update nightly
 # This installs all 4 LNP/BP nodes
 cargo install --force --all-features bp_node --version "0.8.0-alpha.2"
 cargo install --force --all-features lnp_node --version "0.8.0"
-cargo install --force --all-features rgb_node --version "0.8.0"
+cargo install --force --all-features rgb_node --version "0.8.0-rc.1"
 cargo install --force --all-features storm_node --version "0.8.0"
 cargo install --force --all-features store_daemon --version "0.8.0"
 # This install --forces a dozen of command-line tools for working with LNP/BP stack
