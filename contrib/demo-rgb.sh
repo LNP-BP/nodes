@@ -158,3 +158,34 @@ btc-cold finalize --publish testnet ${PSBT}
 
 # Now, once the transaction will be mined, the verification should pass
 rgb consignment validate ${CONSIGNMENT}
+
+# -- CONSUME AND UNLOCK ASSET ------------------------------------------------
+# Go to a remote server / other machine and do the following
+
+# First, we must get all the information required to consume the consignment file.
+# The consignment file
+CONSIGNMENT=${DIR}/demo.rgbc
+# The UXTO used in blinded utxo operation.
+RECEIVE_UXTO=$UTXO
+# The blinding factor generated in blinded utxo operation.
+BLINDING_FACTOR=$INVOICE_BLINDING
+# The close method used in PAYMENT operation.
+CLOSE_METHOD="tapret1st"
+
+# Next, we need to compose the reveal information to unlock the uxto.
+REVEAL="$CLOSE_METHOD@$RECEIVE_UXTO#$BLINDING_FACTOR"
+
+# Let's consume and reveal the concealed seal inside the consignment file.
+rgb -n testnet transfer consume ${CONSIGNMENT} --reveal ${REVEAL}
+
+# Now, we need to check if contract state has changed.
+# First, get the contract ID
+rgb -n testnet contract list
+CONTRACT_ID="rgb1...."
+
+# Next, check the new contract state
+rgb -n testnet contract state ${CONTRACT_ID}
+
+# Finally, if all works correctly, we can spend the received asset.
+# This process equals the PAYMENT operation above, except that this time
+# we will use the $RECEIVE_UXTO as $UTXO_SRC and generate another blind utxo.
