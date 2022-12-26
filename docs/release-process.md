@@ -19,8 +19,9 @@ Order of repo/crate compillation for a new LNP/BP release:
 3. rust-aluvm
 4. client_side_validation
     - confined_encoding
+    - confined_encoding_derive - optional
     - commit_verify
-    - single_use_Seals
+    - single_use_seals
     - client_side_validation
 5. bp-foundation
     - bitcoin_blockchain
@@ -36,32 +37,32 @@ Order of repo/crate compillation for a new LNP/BP release:
     - lnpbp_bech32
     - lnpbp_elgamal - optional
     - lnpbp_chain
-    - lnpbp_identity
-8. lightning_encoding
-9. bp-core
+    - lnpbp_identity - optional
+8. bp-core
     - bp-dbc
     - bp-seals
     - bp-core
-10. rgb-core
-11. lnp-core
-12. storm-core
-13. lnpbp_invoices
-14. rgb-std
-15. rgb_node
+9. rgb-core
+10. lightning_encoding
+    - lightning_encoding_derive
+    - lightning_encoding
+11. lnpbp_invoices
+12. rgb-std
+13. rgb_node
     - rgb_rpc
     - rgb_node
     - rgb-cli
-16. lnp-core
+14. lnp-core
     - lnp2p
     - lnp-core
-17. storm-core
-18. stored
-19. storm_node
+15. storm-core
+16. storm_stored
+17. storm_node
     - storm_rpc
     - storm_node
     - storm-cli
-20. lnp_node
+18. lnp_node
     - lnp_rpc
     - lnp_node
     - lnp-cli
-21. lnpbp-nodes
+19. lnpbp-nodes
