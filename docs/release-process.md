@@ -1,4 +1,4 @@
-Order of repo/crate compillation for a new LNP/BP release:
+Order of repo/crate compillation for a new LNP/BP release (as of v0.9):
 
 ## Prerequisites
 
@@ -8,61 +8,73 @@ Order of repo/crate compillation for a new LNP/BP release:
   - amplify_apfloat
 - lnpbp_secp256k1zkp
 
-## Main order
+## Consensus layer
 
-1. strict_encoding
+1. strict_encoding -- separated from client_side_validation in v0.10
     - strict_encoding
     - strict_encoding_test
     - encoding_derive_helpers - optional
     - strict_encoding_derive - optional
 2. stens
 3. rust-aluvm
-4. client_side_validation
-    - confined_encoding
-    - confined_encoding_derive - optional
+    - aluvm
+5. client_side_validation
+    - confined_encoding -- optional, will be introduced in v0.10
+    - confined_encoding_derive -- optional, will be introduced in v0.10
     - commit_verify
     - single_use_seals
     - client_side_validation
-5. bp-foundation
+6. bp-foundation
     - bitcoin_blockchain
     - bitcoin_scripts
-6. descriptor-wallet
+7. descriptor-wallet
     - slip132 - optional
     - bitcoin_hd
     - descriptors
     - bitcoin_online
     - psdbt
     - descriptor-wallet
-7. rust-lnpbp
+8. rust-lnpbp
     - lnpbp_bech32
     - lnpbp_elgamal - optional
     - lnpbp_chain
     - lnpbp_identity - optional
-8. bp-core
+    - lnpbp
+9. bp-core
     - bp-dbc
     - bp-seals
     - bp-core
-9. rgb-core
-10. lightning_encoding
+10. rgb-core
+
+## Wallet & networking layer
+
+1. lightning_encoding
     - lightning_encoding_derive
     - lightning_encoding
-11. lnpbp_invoices
-12. rgb-std
-13. rgb_node
-    - rgb_rpc
-    - rgb_node
-    - rgb-cli
-14. lnp-core
+2. lnpbp_invoices
+3. lnp-core
     - lnp2p
     - lnp-core
-15. storm-core
-16. storm_stored
-17. storm_node
+4. rgb-std
+5. storm-core
+
+## Nodes
+
+1. internet2 -- will be replaced in v0.10/v0.11
+    - inet2_addr -- optional
+    - internet2
+2. microservices -- will be replaced in v0.10/v0.11
+3. storm_stored
+4. storm_node
     - storm_rpc
     - storm_node
     - storm-cli
-18. lnp_node
+5. rgb_node
+    - rgb_rpc
+    - rgb_node
+    - rgb-cli
+6. lnp_node
     - lnp_rpc
     - lnp_node
     - lnp-cli
-19. lnpbp-nodes
+7. lnpbp-nodes
