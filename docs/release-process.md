@@ -1,11 +1,14 @@
 Order of repo/crate compillation for a new LNP/BP release:
 
-Prerequisites:
+## Prerequisites
+
 - amplify
   - amplify_derive
   - amplify_num
   - amplify_apfloat
 - lnpbp_secp256k1zkp
+
+## Main order
 
 1. strict_encoding
     - strict_encoding
@@ -19,22 +22,22 @@ Prerequisites:
     - commit_verify
     - single_use_Seals
     - client_side_validation
-5. lightning_encoding
-6. bp-foundation
+5. bp-foundation
     - bitcoin_blockchain
     - bitcoin_scripts
-7. descriptor-wallet
+6. descriptor-wallet
     - slip132 - optional
     - bitcoin_hd
     - descriptors
     - bitcoin_online
     - psdbt
     - descriptor-wallet
-8. rust-lnpbp
+7. rust-lnpbp
     - lnpbp_bech32
     - lnpbp_elgamal - optional
     - lnpbp_chain
     - lnpbp_identity
+8. lightning_encoding
 9. bp-core
     - bp-dbc
     - bp-seals
