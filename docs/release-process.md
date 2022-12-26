@@ -2,13 +2,13 @@ Order of repo/crate compillation for a new LNP/BP release (as of v0.9):
 
 ## Prerequisites
 
-- rust-amplify
+- rust-amplify/rust-amplify
   - amplufy_syn
   - amplify_derive
   - amplify_num
   - amplify_apfloat
   - amplify
-- rust-secp256k1-zkp
+- LNP-BP/rust-secp256k1-zkp
   - lnpbp_secp256k1zkp
 
 ## Consensus layer
@@ -55,7 +55,8 @@ Order of repo/crate compillation for a new LNP/BP release (as of v0.9):
 1. lightning_encoding
     - lightning_encoding_derive
     - lightning_encoding
-2. lnpbp_invoices
+2. invoices
+    - lnpbp_invoices
 3. lnp-core
     - lnp2p
     - lnp-core
@@ -68,16 +69,19 @@ Order of repo/crate compillation for a new LNP/BP release (as of v0.9):
     - inet2_addr -- optional
     - internet2
 2. microservices -- will be replaced in v0.10/v0.11
-3. storm_stored
-4. storm_node
+3. storm-stored
+    - store_rpc
+    - store_daemon
+    - store-cli
+4. storm-node
     - storm_rpc
     - storm_node
     - storm-cli
-5. rgb_node
+5. rgb-node
     - rgb_rpc
     - rgb_node
     - rgb-cli
-6. lnp_node
+6. lnp-node
     - lnp_rpc
     - lnp_node
     - lnp-cli
