@@ -2,11 +2,14 @@ Order of repo/crate compillation for a new LNP/BP release (as of v0.9):
 
 ## Prerequisites
 
-- amplify
+- rust-amplify
+  - amplufy_syn
   - amplify_derive
   - amplify_num
   - amplify_apfloat
-- lnpbp_secp256k1zkp
+  - amplify
+- rust-secp256k1-zkp
+  - lnpbp_secp256k1zkp
 
 ## Consensus layer
 
@@ -15,7 +18,8 @@ Order of repo/crate compillation for a new LNP/BP release (as of v0.9):
     - strict_encoding_test
     - encoding_derive_helpers - optional
     - strict_encoding_derive - optional
-2. stens
+2. rust-stens
+    - stens
 3. rust-aluvm
     - aluvm
 5. client_side_validation
@@ -32,7 +36,7 @@ Order of repo/crate compillation for a new LNP/BP release (as of v0.9):
     - bitcoin_hd
     - descriptors
     - bitcoin_online
-    - psdbt
+    - psbt
     - descriptor-wallet
 8. rust-lnpbp
     - lnpbp_bech32
