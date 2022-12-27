@@ -142,7 +142,14 @@ rgb psbt analyze ${PSBT}
 # referencing this txid.
 # We also instruct the daemon to send the consignment to the beneficiary LN node.
 # If done on the same system (a self-payment), the --send argument can be omitted.
-rgb-cli -n testnet transfer finalize --endseal ${TXOB} ${PSBT} ${CONSIGNMENT} --send
+# If done on the remote peer, the --send argument is reqquired.
+#   For sending to the remote peer, we need to check if both peers (self and remote) 
+#   have connected by Bifrost protocol (check this using `lnp-cli peers` method).
+NODE_ID="..." #The node_id of the beneficiary LN node
+STORM_ADDR="..." #The stormd IP connected in your RGB node
+STORM_PORT="..." #The stormd RPC port
+BENEFICIARY="$NODE_ID@$STORM_ADDR:$STORM_PORT"
+rgb-cli -n testnet transfer finalize --endseal ${TXOB} ${PSBT} ${CONSIGNMENT} --send $BENEFICIARY
 
 # Those who interested can look into the transfer consignment
 rgb consignment inspect ${CONSIGNMENT}
