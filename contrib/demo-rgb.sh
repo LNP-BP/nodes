@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
 # There might be a need to download build-essentials, cmake, python3 and python3-dev
-sudo apt install build-essentials
-sudo apt install cmake
-sudo apt install python3
-sudo apt install python3-dev
+sudo apt install -y build-essentials cmake python3 python3-dev
 
 # --- INITIAL SETUP
 
@@ -58,10 +55,7 @@ rgb-cli -n testnet contract state ${CONTRACT_ID}
 # Go to a remote server / other machine and do the following
 
 # There might be a need to download build-essentials, cmake, python3 and python3-dev
-sudo apt install build-essentials
-sudo apt install cmake
-sudo apt install python3
-sudo apt install python3-dev
+sudo apt install -y build-essentials cmake python3 python3-dev
 
 # Run separate install script
 ./install.sh
