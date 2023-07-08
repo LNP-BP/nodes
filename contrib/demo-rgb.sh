@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# There might be a need to download build-essentials, cmake, python3 and python3-dev
+sudo apt install -y build-essentials cmake python3 python3-dev
+
 # --- INITIAL SETUP
 
 # Run separate install script
@@ -29,7 +32,7 @@ lnpd -vvv --network testnet init
 
 tmux new-session -d -s store stored -vvv
 tmux new-session -d -s lnp lnpd -vvv --network testnet
-tmux new-session -d -s rgb rgbd -vvv --network testnet
+tmux new-session -d -s rgb rgbd -vvv --network testnet --electrum-server electrum.blockstream.info --electrum-port 60001
 tmux new-session -d -s storm stormd -vvv --chat --downpour --msg ~/.lnp_node/testnet/msg
 # -OR- run all the daemons within the same terminal (processes must be exited using process manager)
 # Note: Try all these commands separately first to ensure they can run
@@ -50,6 +53,9 @@ rgb-cli -n testnet contract state ${CONTRACT_ID}
 
 # ----------------------------------------------------------
 # Go to a remote server / other machine and do the following
+
+# There might be a need to download build-essentials, cmake, python3 and python3-dev
+sudo apt install -y build-essentials cmake python3 python3-dev
 
 # Run separate install script
 ./install.sh
@@ -74,7 +80,7 @@ lnpd -vvv --network testnet init
 
 tmux new-session -d -s store stored -vvv
 tmux new-session -d -s lnp lnpd -vvv --network testnet --listen-all --bifrost
-tmux new-session -d -s rgb rgbd -vvv --network testnet
+tmux new-session -d -s rgb rgbd -vvv --network testnet --electrum-server electrum.blockstream.info --electrum-port 60001
 tmux new-session -d -s storm storm -vvv --chat --downpour
 
 # Copy the contract we issued on the other machine
@@ -100,7 +106,7 @@ UTXO_SRC=$UTXO_ISSUE # We will transfer issued funds, but in fact it can be any 
 CONSIGNMENT=${DIR}/demo.rgbc
 rgb-cli -n testnet transfer compose ${CONTRACT_ID} ${UTXO_SRC} ${CONSIGNMENT}
 # We can verify that the consignment is correct
-rgb consignment validate ${CONSIGNMENT}
+rgb consignment validate ${CONSIGNMENT} electrum.blockstream.info:60001
 
 # Next, we need to compose state transition performing the transfer for our contract.
 # We do not need stash for that, since the base consignment we just created contains
@@ -157,14 +163,14 @@ rgb consignment inspect ${CONSIGNMENT}
 # If we validate the consignment now, we will see that it will report absence
 # of the mined endpoint transaction, which is correct - we have not yet published
 # witness transaction from the PSBT file
-rgb consignment validate ${CONSIGNMENT}
+rgb consignment validate ${CONSIGNMENT} electrum.blockstream.info:60001
 
 # Lets finalize, sign & publish the witness transaction
 btc-hot sign ${PSBT} ${DIR}/testnet
 btc-cold finalize --publish testnet ${PSBT}
 
 # Now, once the transaction will be mined, the verification should pass
-rgb consignment validate ${CONSIGNMENT}
+rgb consignment validate ${CONSIGNMENT} electrum.blockstream.info:60001
 
 # -- CONSUME AND UNLOCK ASSET ------------------------------------------------
 # Go to a remote server / other machine and do the following
@@ -183,15 +189,15 @@ CLOSE_METHOD="tapret1st"
 REVEAL="$CLOSE_METHOD@$RECEIVE_UXTO#$BLINDING_FACTOR"
 
 # Let's consume and reveal the concealed seal inside the consignment file.
-rgb -n testnet transfer consume ${CONSIGNMENT} --reveal ${REVEAL}
+rgb-cli -n testnet transfer consume ${CONSIGNMENT} --reveal ${REVEAL}
 
 # Now, we need to check if contract state has changed.
 # First, get the contract ID
-rgb -n testnet contract list
+rgb-cli -n testnet contract list
 CONTRACT_ID="rgb1...."
 
 # Next, check the new contract state
-rgb -n testnet contract state ${CONTRACT_ID}
+rgb-cli -n testnet contract state ${CONTRACT_ID}
 
 # Finally, if all works correctly, we can spend the received asset.
 # This process equals the PAYMENT operation above, except that this time
